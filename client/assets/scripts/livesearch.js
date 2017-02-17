@@ -15,7 +15,9 @@ function search() {
                                 if (val.profile_path.length > 0) {
                                     output += '<div class="row searchItem">\
                                                 <div class="small-4 medium-2 column">\
-                                                    <img src="https://image.tmdb.org/t/p/w500' + val.profile_path + '">\
+                                                    <a href="/#/person/' + val.id + '">\
+                                                        <img src="https://image.tmdb.org/t/p/w500' + val.profile_path + '">\
+                                                    </a>\
                                                 </div>\
                                                 <div class="small-8 medium-10 column">\
                                                     <div class="movie-title">' + val.name + '</div>\
@@ -30,7 +32,9 @@ function search() {
                                 if (val.poster_path.length > 0) {
                                     output += '<div class="row searchItem">\
                                                 <div class="small-4 medium-2 column">\
-                                                    <img src="https://image.tmdb.org/t/p/w500' + val.poster_path + '">\
+                                                    <a href="/#/movie/' + val.id + '">\
+                                                        <img src="https://image.tmdb.org/t/p/w500' + val.poster_path + '">\
+                                                    </a>\
                                                 </div>\
                                                 <div class="small-8 medium-10 column">\
                                                     <div class="movie-title">' + val.title + '</div>\
@@ -46,8 +50,11 @@ function search() {
                                 if (val.poster_path.length > 0) {
                                     output += '<div class="row searchItem">\
                                                 <div class="small-4 medium-2 column">\
-                                                    <img src="https://image.tmdb.org/t/p/w500' + val.poster_path + '">\
+                                                    <a href="/#/tv/' + val.id + '">\
+                                                        <img src="https://image.tmdb.org/t/p/w500' + val.poster_path + '">\
+                                                    </a>\
                                                 </div>\
+                                                </a>\
                                                 <div class="small-8 medium-10 column">\
                                                     <div class="movie-title">' + val.name + '</div>\
                                                     <div class="column"></div>\

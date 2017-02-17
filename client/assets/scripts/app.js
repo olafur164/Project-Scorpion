@@ -47,6 +47,10 @@ function render(template, data, target) {
             main();
             search();
         }
+        if(template === "search") {
+            main();
+            search();
+        }
         if(template === "index") {
             main();
         }
@@ -89,6 +93,13 @@ Router.route('/', function() {
 Router.route('/filter', function() {
     render("filter");
 });
+Router.route('/filter/:query', function() {
+    const db = new Search();
+    var query = getParameterByName("query");
+    var page = getParameterByName("page");
+    const data = db.getMulti({query: query, page: page})
+    render("search", { data: data});
+});
 Router.route('/search', function() {
     render("livesearch");
 });
@@ -108,6 +119,16 @@ Router.route('/movie/:id', function() {
     const images = db.getImages({id: this.params.id})
     const similar = db.getSimilarMovies({id: this.params.id})
     render("movie", {data: data, trailer: trailer, credits: credits, images: images, similar: similar});
+});
+Router.route('/tv/:id', function() {
+    //const db = new TV();
+    render("tv", {});
+});
+Router.route('/person/:id', function() {
+    const db = new People();
+    const data = db.getById({id: this.params.id})
+    console.log(data);
+    render("person", {data: data});
 });
 // Display a custom message
 Router.notFound = function() {

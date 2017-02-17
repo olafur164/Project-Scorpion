@@ -3,11 +3,14 @@ class TheMovieDB {
         this.api_key = '5caf95feed570ed071f7cb0839668613';
         this.base_uri = 'https://api.themoviedb.org/3/';
     }
+    get ApiKey() {
+        return this.api_key;
+    }
     generateQuery( options ) {
         'use strict';
         let myOptions, query, option;
         myOptions = options || {}
-        query = "?api_key=" + this.api_key;
+        query = "?api_key=" + this.ApiKey;
         if ( Object.keys( myOptions ).length > 0 ) {
             for ( option in myOptions ) {
                 if ( myOptions.hasOwnProperty( option ) && option !== "id" && option !== "body" ) {
@@ -204,6 +207,17 @@ class Search extends TheMovieDB {
         return this.getApi(
             {
                 url: "search/multi" + this.generateQuery(options)
+            }
+        )
+    }
+}
+class People extends TheMovieDB {
+    getById(options, callback) {
+        'use strict';
+        this.validateRequired(arguments, 1, options, ["id"] );
+        return this.getApi(
+            {
+                url: "person/" + options.id + "" + this.generateQuery(options)
             }
         )
     }
