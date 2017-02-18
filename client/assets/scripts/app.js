@@ -87,8 +87,12 @@ Router.route('/', function() {
     render("index", { popular: popular, genre: gen});
 }); 
 Router.route('/filter', function() {
-    render("filter");
+    const filter = new Filter;
+    const genreData = filter.getGenreList({});
+    console.log(genreData)
+    render("filter",{genreList: genreData});
 });
+
 Router.route('/search', function() {
     render("livesearch");
 });

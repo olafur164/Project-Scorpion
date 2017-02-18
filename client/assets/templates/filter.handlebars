@@ -32,14 +32,13 @@
 		<h2>Genre</h2>
 	</div>
 </div>
-<div class="row align-center responsiveFilter small-10 button-group">
-	<button class="genreFilter button" data-filter="*">Option1</button>
-	<button class="genreFilter button" data-filter="*">Option1</button>
-	<button class="genreFilter button" data-filter="*">Option1</button>
-	<button class="genreFilter button" data-filter="*">Option1</button>
-	<button class="genreFilter button" data-filter="*">Option1</button>
-	<button class="genreFilter button" data-filter="*">Option1</button>
-	
-	
+	<div id="filters" class="row align-center responsiveFilter small-10 button-group">
+		{{#each genreList.genres}}
+		<button class="button" data-filter="{{this.id}}">{{this.name}}</button>
+		{{/each}}
+	</div>
+
+	<div class="row align-center">
+		<button class="confirmButton">Confirm</button>
 	</div>
 </div>

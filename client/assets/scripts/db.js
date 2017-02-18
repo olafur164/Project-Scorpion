@@ -3,6 +3,13 @@ class TheMovieDB {
         this.api_key = '5caf95feed570ed071f7cb0839668613';
         this.base_uri = 'https://api.themoviedb.org/3/';
     }
+
+    // Get búið til af Eysteini
+    get apiKey(){
+        return this.api_key;
+    }
+
+
     generateQuery( options ) {
         'use strict';
         let myOptions, query, option;
@@ -97,6 +104,19 @@ class TheMovieDB {
 
     }
 }
+
+// Eysteinn gerði þennan Class 
+
+class Filter extends TheMovieDB {
+    getGenreList(options) {
+        this.validateRequired(arguments, 1, options, [] );
+        return this.getApi(
+        {
+            url: "genre/movie/list" + this.generateQuery(options)  
+        })
+    }
+}
+
 class Genres extends TheMovieDB {
     getList(options) {
         'use strict';
@@ -109,7 +129,7 @@ class Genres extends TheMovieDB {
     }
     getMovies(options) {
         'use strict';
-        this.validateRequired(arguments, 1, options, ["id"] );
+        this.validateRequired(arguments, 1, options, ["id",] );
         return this.getApi(
             {
                 url: "genre/" + options.id + "/movies" + this.generateQuery(options)
@@ -149,6 +169,10 @@ class Movies extends TheMovieDB {
     }
     getKeywords() {}
     getReleaseDates() {}
+
+
+    // Eystenn gerði þetta method
+
     getTrailers(options, callback) {    
         this.validateRequired(arguments, 1, options, ["id", "type"] );
         return this.getApi(
