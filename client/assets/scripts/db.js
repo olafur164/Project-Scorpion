@@ -4,6 +4,7 @@ class TheMovieDB {
         this.base_uri = 'https://api.themoviedb.org/3/';
     }
 
+
     // Get búið til af Eysteini
     get apiKey(){
         return this.api_key;
@@ -13,7 +14,7 @@ class TheMovieDB {
         'use strict';
         let myOptions, query, option;
         myOptions = options || {}
-        query = "?api_key=" + this.ApiKey;
+        query = "?api_key=" + this.api_key;
         if ( Object.keys( myOptions ).length > 0 ) {
             for ( option in myOptions ) {
                 if ( myOptions.hasOwnProperty( option ) && option !== "id" && option !== "body" ) {
