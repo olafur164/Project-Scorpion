@@ -1,10 +1,10 @@
 <div class="filter">
 	<div class="search row align-center">
-		<input class="small-10" type="text" value="Search">
+		<input class="small-10 large-12" type="text" value="Search">
 	</div>
 </div>
 <div class="row align-center">
-	<div class="small-11 rating">	
+	<div class="small-11 large-12 rating">	
 		<h2>Rating</h2>
 	</div>
 </div>
@@ -16,7 +16,7 @@
 	</div>
 </div>
 <div class="row align-center">
-	<div class="small-11 rating">	
+	<div class="small-11 large-12 rating">	
 		<h2>Year</h2>
 	</div>
 </div>
@@ -28,17 +28,16 @@
 </div>
 
 <div class="row align-center">
-	<div class="small-11 rating">	
+	<div class="small-11 large-12 rating">	
 		<h2>Genre</h2>
 	</div>
 </div>
-	<div id="filters" class="row align-center responsiveFilter small-10 button-group">
+	<div id="filters" class="row small-10 large-8 align-center responsiveFilter">
 		{{#each genreList.genres}}
-		<button class="button" data-filter="{{this.id}}">{{this.name}}</button>
+		<div class="button" data-filter="{{this.id}}">{{this.name}}</div>
 		{{/each}}
 	</div>
 
 	<div class="row align-center">
 		<button class="confirmButton">Confirm</button>
 	</div>
-</div>
