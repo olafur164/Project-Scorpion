@@ -91,7 +91,9 @@ Router.autoRun = true;
 Router.route('/', function() {
     const db = new Movies();
     const kvikmyndirdb = new Kvikmyndir();
-    console.log(kvikmyndirdb.authenticate());
+    kvikmyndirdb.authenticate();
+    const iceCinema = kvikmyndirdb.nowPlaying();
+    console.log(iceCinema);
     const genres = new Genres();
     const popular = db.getPopular({})
     const genreList = genres.getList({});
@@ -104,7 +106,7 @@ Router.route('/', function() {
             movies: genreMovies
         });
     })
-    render("index", { popular: popular, genre: gen});
+    render("index", { popular: popular, genre: gen, iceCinema: iceCinema});
 }); 
 Router.route('/filter', function() {
     const filter = new Filter;
@@ -134,7 +136,8 @@ Router.route('/movie/:id', function() {
     const db = new Movies();
     const data = db.getById({id: this.params.id})
     let trailer = db.getTrailers({id: this.params.id})
-    trailer = trailer.results[0].key
+    if (trailer) 
+        trailer = trailer.results[0].key
     const credits = db.getCredits({id: this.params.id})
     const images = db.getImages({id: this.params.id})
     const similar = db.getSimilarMovies({id: this.params.id})
