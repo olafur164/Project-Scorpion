@@ -38,7 +38,29 @@
 			</a>
 		{{/each}}
 	</div>
-	<!-- 
+
+	<div class="row column small-12 large-11 categoryText">
+		<h2>In Icelandic Cinema</h2>
+	</div>
+	<div class="row row-1 small-12 large-11  responsive">
+		{{#each iceCinema}}
+			<div class="small-11 large-3 movieImg">
+					<div class="columns small-10 medium-12 large-12 movieImgInfo">
+						<div class="row">
+							<div class="movieImgTitle">
+								<h3>{{this.title}}</h3>
+							</div>
+							<div class="starringInfo columns large-12">
+								<ul class="row column">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<img src="{{#if this.poster }}{{this.poster}}{{/if}}" alt="">
+			</div>
+		{{/each}}
+	</div>
+
 	{{#each genre}}
 	<div class="row column small-12 large-11 categoryText">
 		<h2>{{this.name}}</h2>
@@ -66,5 +88,5 @@
 		{{/each}}
 	</div>
 	{{/each}}
- -->
+
 </div>		
