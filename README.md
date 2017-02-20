@@ -45,9 +45,6 @@ const db = new Search();
 const data = db.getMulti({query: 'deadpool', page: 1})
 ```
 
-### Example for getting data by movie id
-
-
 Þar sem að helsti tilgangur síðunnar er að finna kvikmyndir og þætti viljum við að það fyrsta sem birtis notanda séu kvikmyndir og þættir. Sjónvarpsefni sem á við fyrir líðandi stund svo sem vinsæla sjónvarpsþætti, bíómyndir í bíó og svo framvegis.
 
  
