@@ -1,9 +1,9 @@
 <header>
-		<div id="header" class="">
-				<div class="logoHeader">
+		<div id="header" class="wow fadeIn" data-wow-duration=".5s" data-wow-offset="1" data-wow-iteration="1">
+				<div class="logoHeader wow fadeIn" data-wow-duration="1s" data-wow-delay=".9s" data-wow-offset="10" data-wow-iteration="1">
 					<img src="/assets/logo/Movieboxlogo.png" alt="Movie Box logo">
 				</div>
-				<div class="searchIcon">
+				<div class="searchIcon wow fadeIn" data-wow-duration="1s" data-wow-delay=".9s" data-wow-offset="10" data-wow-iteration="1">
 					<img src="/assets/icon/LEIT.png" alt="">
 				</div>
 				<div class="small-12  headerText align-center align-self-middle">
@@ -12,14 +12,15 @@
 		</div>
 </header>
 <!-- Category 1 Row-1 -->
-<div class="column">
+<div class="column wow slideInUp" data-wow-duration="1.2s">
 	<div class="row column small-12 large-11 categoryText">
 		<h2>Popular</h2>
 	</div>
-	<div class="row row-1 small-12 large-11  responsive">
+	<div class="row small-12 large-11 responsive">
 		{{#each popular.results}}
-			<div class="small-11 large-3 movieImg">
-				<a href="/#/movie/{{this.id}}">
+		<a id="movie" href="/#/movie/{{this.id}}">
+			<div class="small-11 large-12 align-justify movieImg">
+				
 					<div class="columns small-10 medium-12 large-12 movieImgInfo">
 						<div class="row">
 							<div class="movieImgTitle">
@@ -32,18 +33,21 @@
 						</div>
 					</div>
 					<img src="{{#if this.poster_path }}https://image.tmdb.org/t/p/w500/{{this.poster_path}}{{/if}}" alt="">
-				</a>
+				
 			</div>
+			</a>
 		{{/each}}
 	</div>
+	<!-- 
 	{{#each genre}}
 	<div class="row column small-12 large-11 categoryText">
 		<h2>{{this.name}}</h2>
 	</div>
 	<div class="row row-1 small-12 large-11  responsive">
 		{{#each this.movies.results}}
-			<div class="small-11 large-3 movieImg">
-				<a href="/#/movie/{{this.id}}">
+		<a id="movie" href="/#/movie/{{this.id}}">
+			<div class="small-11 large-12 movieImg">
+				
 					<div class="columns small-10 medium-12 large-12 movieImgInfo">
 						<div class="row">
 							<div class="movieImgTitle">
@@ -56,10 +60,11 @@
 						</div>
 					</div>
 					<img src="{{#if this.poster_path }}https://image.tmdb.org/t/p/w500/{{this.poster_path}}{{/if}}" alt="">
-				</a>
+				
 			</div>
+			</a>
 		{{/each}}
 	</div>
 	{{/each}}
-
+ -->
 </div>		
