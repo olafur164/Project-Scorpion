@@ -47,7 +47,7 @@
 /*.movieImgRating {
 	position: absolute;
 	right: 0;
-	
+
 }*/
 .movieInfo {
 	height: 230px;
@@ -215,6 +215,7 @@
 	object-fit: cover;
 	object-position: center;
 }
+
 }
 
 

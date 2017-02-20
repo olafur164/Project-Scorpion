@@ -54,7 +54,7 @@ body {
 		position: absolute;
 		left: 16px;
 		top: 14px;
-		z-index: 998;
+		z-index: 1222;
 	}
 	.searchIcon {
 		height: 20px;
@@ -62,12 +62,12 @@ body {
 		position: absolute;
 		right: 20px;
 		top: 22px;
-		z-index: 999;
+		z-index: 1200;
 		transition: ease-in .15s;
 	}
-
 	.searchIcon:hover {
-		transform: scale(1.05);
+		transform: scale(1.03);
+		cursor: pointer;
 	}
 	.headerText {
 		width: 100%;
