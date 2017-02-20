@@ -57,6 +57,9 @@ function render(template, data, target) {
         if(template === "movie") {
             main();
         }
+        if(template === "tv") {
+            main();
+        }
         if(template === "filter") {
             main();
             filter();
@@ -144,8 +147,15 @@ Router.route('/movie/:id', function() {
     render("movie", {data: data, trailer: trailer, credits: credits, images: images, similar: similar});
 });
 Router.route('/tv/:id', function() {
-    //const db = new TV();
-    render("tv", {});
+    const db = new TV();
+    const data = db.getById({id: this.params.id});
+    const credits = db.getCredits({id: this.params.id})
+    const images = db.getImages({id: this.params.id})
+    const similar = db.getSimilar({id: this.params.id})
+    let trailer = db.getTrailers({id: this.params.id})
+    if (trailer) 
+        trailer = trailer.results[0].key
+    render("tv", {data: data, trailer: trailer, credits: credits, images: images, similar: similar});
 });
 Router.route('/person/:id', function() {
     const db = new People();

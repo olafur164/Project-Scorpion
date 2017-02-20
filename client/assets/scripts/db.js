@@ -212,6 +212,49 @@ class Movies extends TheMovieDB {
     getUpcoming() {}
 
 }
+class TV extends TheMovieDB {
+    getById(options) {
+        this.validateRequired(arguments, 1, options, [] );
+        return this.getApi(
+            {
+                url: "tv/" + options.id + this.generateQuery(options)
+            }
+        )
+    }
+    getCredits(options, callback) {
+        this.validateRequired(arguments, 1, options, ["id"] );
+        return this.getApi(
+            {
+                url: "tv/" + options.id + "/credits" + this.generateQuery(options)
+            }
+        )
+    }
+    getImages(options, callback) {
+        this.validateRequired(arguments, 1, options, ["id"] );
+        return this.getApi(
+            {
+                url: "tv/" + options.id + "/images" + this.generateQuery(options)
+            }
+        )
+    }
+    getTrailers(options, callback) {    
+        this.validateRequired(arguments, 1, options, ["id", "type"] );
+        return this.getApi(
+            {
+                url: "tv/" + options.id + "/videos" + this.generateQuery(options)
+            }
+        )
+
+    }
+    getSimilar(options,callback) {
+        this.validateRequired(arguments, 1, options, ["id"] );
+        return this.getApi(
+            {
+                url: "tv/" + options.id + "/similar" + this.generateQuery(options)
+            }
+        )
+    }
+}
 class Search extends TheMovieDB {
     getMovies(options) {
         'use strict';
