@@ -1,7 +1,12 @@
 <div class="movieHeader">
 	<div class="large-12 trailer">
-		<video src="" poster="https://image.tmdb.org/t/p/original{{data.backdrop_path}}" autoplay="" class="video" loop=""><source src="media/marbleEdit.mp4" type="video/mp4"></video>
-
+		<video class="wow fadeIn" data-wow-duration="1.2s" data-wow-delay="1s" src="" poster="https://image.tmdb.org/t/p/original{{data.backdrop_path}}" autoplay="" class="video" loop=""><source src="media/marbleEdit.mp4" type="video/mp4"></video>
+		<div class="logoHeader wow fadeIn" data-wow-duration="1s" data-wow-delay=".9s" data-wow-offset="10" data-wow-iteration="1">
+					<img src="/assets/logo/Movieboxlogo.png" alt="Movie Box logo">
+				</div>
+				<div class="searchIcon wow fadeIn" data-wow-duration="1s" data-wow-delay=".9s" data-wow-offset="10" data-wow-iteration="1">
+					<img src="/assets/icon/LEIT.png" alt="">
+				</div>
 		<div class="reveal" id="exampleModal1" data-reveal>
 			<!-- <video class="movieTrailer" src="../public/media/video.mp4" poster="https://image.tmdb.org/t/p/original<%= data.backdrop_path %>" autoplay="" class="video" loop="">
 			</video> -->
@@ -17,7 +22,7 @@
 
 		</div>
 	</div>
-	<div class="playButton"><a data-open="exampleModal1"><svg width="125" height="125" viewBox="0 0 125 125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+	<div class="playButton wow rotateIn" data-wow-duration="1.2s" data-wow-delay="2s"><a data-open="exampleModal1"><svg width="125" height="125" viewBox="0 0 125 125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
 		<title>play button</title>
 		<g id="Canvas" transform="translate(-1626 -2010)" figma:type="canvas">
 		<g id="play button" style="mix-blend-mode:normal;" figma:type="frame">
@@ -50,9 +55,9 @@
 
 
 <div class="row align-center small-12 large-12 skewInfoBox">
-<div class="unskewInfoBox large-10 columns">
+<div class="unskewInfoBox large-10 columns wow fadeIn" data-wow-duration="1.2s" data-wow-delay="1.5s">
 
-<div class="column floatingPoster small-6 medium-3 large-3">
+<div class="column floatingPoster small-6 medium-3 large-3 wow fadeIn" data-wow-duration="1.2s" data-wow-delay="1.5s">
 <img src="{{#if data.poster_path }}https://image.tmdb.org/t/p/w500/{{data.poster_path}}{{/if}}" alt="">
 </div>
 
@@ -90,7 +95,7 @@
 <div class="responsiveCast small-12 large-12 align-center">
 {{#each credits.cast}}
 
-<div class="cast">
+<div id="movie" class="cast">
 <img src="{{#if this.profile_path}}https://image.tmdb.org/t/p/w500{{this.profile_path}}{{/if}}" alt="">
 <div class="artistName">
 <h4>{{this.name}}</h4>
@@ -105,7 +110,7 @@
 <div class="">
 <div class="responsiveStills movieStills small-12 large-12">
 {{#each images.backdrops}}
-<div class="still">
+<div class="still" id="movie">
 <img src="https://image.tmdb.org/t/p/w500{{this.file_path}}" alt="">
 </div>
 {{/each}}
@@ -118,8 +123,9 @@
 <h2>People also liked</h2>
 <div class="responsive relevant">
 {{#each similar.results}}
-			<div class="small-11 large-3 movieImg">
-				<a href="/#/movie/{{this.id}}">
+			<a id="movie" href="/#/movie/{{this.id}}">
+			<div class="small-11 large-12 movieImg">
+				
 							<div class="movieImgRating">
 								{{this.vote_average}}
 							</div>
@@ -131,8 +137,9 @@
 						</div>
 					</div>
 					<img src="{{#if this.poster_path }}https://image.tmdb.org/t/p/w500/{{this.poster_path}}{{/if}}" alt="">
-				</a>
+				
 			</div>
+			</a>
 {{/each}}
 </div>
 </div>
