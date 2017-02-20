@@ -74,6 +74,20 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+Router.autoRun = true;
+    Router.on('route', function () {
+        console.log('go to ' + this.path);
+    });
+    Router.on('beforeRender', function () {
+        console.log('before ' + this.path);
+    });
+    Router.on('afterRender', function () {
+        console.log('after ' + this.path);
+    });
+    // Declare not found route
+    Router.notFound = function () {
+        this.render($('#not-found').html());
+    };
 Router.route('/', function() {
     const db = new Movies();
     const genres = new Genres();
@@ -93,7 +107,6 @@ Router.route('/', function() {
 Router.route('/filter', function() {
     const filter = new Filter;
     const genreData = filter.getGenreList({});
-    console.log(genreData)
     render("filter",{genreList: genreData});
 });
 
