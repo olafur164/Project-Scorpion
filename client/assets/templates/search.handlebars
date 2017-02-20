@@ -12,7 +12,7 @@
 		{{#each data.results}}
 			{{#compare this.media_type "person"}}
 			<div class="row searchItem">
-				<a href="/#/person/{{this.id}}">
+				<a href="#/person/{{this.id}}">
 				<div class="small-4 medium-2 column">
 					<img src="{{#if this.profile_path }}https://image.tmdb.org/t/p/w500{{this.profile_path}}{{/if}}">
 				</div>
@@ -29,7 +29,7 @@
 			{{/compare}}
 			{{#compare this.media_type "tv"}}
 			<div class="row searchItem">
-				<a href="/#/tv/{{this.id}}">
+				<a href="#/tv/{{this.id}}">
 				<div class="small-4 medium-2 column">
 					<img src="{{#if this.poster_path }}https://image.tmdb.org/t/p/w500{{this.poster_path}}{{/if}}">
 				</div>
@@ -44,7 +44,7 @@
 			{{/compare}}
 			{{#compare this.media_type "movie"}}
 			<div class="row searchItem">
-				<a href="/#/movie/{{this.id}}">
+				<a href="#/movie/{{this.id}}">
 				<div class="small-4 medium-2 column">
 					<img src="{{#if this.poster_path }}https://image.tmdb.org/t/p/w500{{this.poster_path}}{{/if}}">
 				</div>

@@ -15,7 +15,7 @@ function search() {
                                 if (val.profile_path.length > 0) {
                                     output += '<div class="row searchItem">\
                                                 <div class="small-4 medium-2 column">\
-                                                    <a href="/#/person/' + val.id + '">\
+                                                    <a href="#/person/' + val.id + '">\
                                                         <img src="https://image.tmdb.org/t/p/w500' + val.profile_path + '">\
                                                     </a>\
                                                 </div>\
@@ -32,7 +32,7 @@ function search() {
                                 if (val.poster_path.length > 0) {
                                     output += '<div class="row searchItem">\
                                                 <div class="small-4 medium-2 column">\
-                                                    <a href="/#/movie/' + val.id + '">\
+                                                    <a href="#/movie/' + val.id + '">\
                                                         <img src="https://image.tmdb.org/t/p/w500' + val.poster_path + '">\
                                                     </a>\
                                                 </div>\
@@ -50,7 +50,7 @@ function search() {
                                 if (val.poster_path.length > 0) {
                                     output += '<div class="row searchItem">\
                                                 <div class="small-4 medium-2 column">\
-                                                    <a href="/#/tv/' + val.id + '">\
+                                                    <a href="#/tv/' + val.id + '">\
                                                         <img src="https://image.tmdb.org/t/p/w500' + val.poster_path + '">\
                                                     </a>\
                                                 </div>\

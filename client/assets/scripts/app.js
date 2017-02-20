@@ -91,7 +91,7 @@ Router.autoRun = true;
     Router.notFound = function () {
         this.render($('#not-found').html());
     };
-Router.route('/', () => {
+Router.route('/', function() {
     const db = new Movies();
     const kvikmyndirdb = new Kvikmyndir();
     kvikmyndirdb.authenticate();
@@ -111,13 +111,13 @@ Router.route('/', () => {
     })
     render("index", { popular: popular, genre: gen, iceCinema: iceCinema});
 }); 
-Router.route('/filter', () => {
+Router.route('/filter', function() {
     const filter = new Filter;
     const genreData = filter.getGenreList({});
     render("filter",{genreList: genreData});
 });
 
-Router.route('/filter/:query', () => {
+Router.route('/filter/:query', function() {
     const db = new Search();
     var query = getParameterByName("query");
     var page = getParameterByName("page");
@@ -125,17 +125,17 @@ Router.route('/filter/:query', () => {
     render("search", { data: data});
 });
 
-Router.route('/search', () => {
+Router.route('/search', function() {
     render("livesearch");
 });
-Router.route('/search/:query', () => {
+Router.route('/search/:query', function() {
     const db = new Search();
     var query = getParameterByName("query");
     var page = getParameterByName("page");
     const data = db.getMulti({query: query, page: page})
     render("search", { data: data});
 });
-Router.route('/movie/:id', () => {
+Router.route('/movie/:id', function() {
     const db = new Movies();
     const data = db.getById({id: this.params.id})
     let trailer = db.getTrailers({id: this.params.id})
@@ -146,7 +146,7 @@ Router.route('/movie/:id', () => {
     const similar = db.getSimilarMovies({id: this.params.id})
     render("movie", {data: data, trailer: trailer, credits: credits, images: images, similar: similar});
 });
-Router.route('/tv/:id', () => {
+Router.route('/tv/:id', function() {
     const db = new TV();
     const data = db.getById({id: this.params.id});
     const credits = db.getCredits({id: this.params.id})
@@ -157,7 +157,7 @@ Router.route('/tv/:id', () => {
         trailer = trailer.results[0].key
     render("tv", {data: data, trailer: trailer, credits: credits, images: images, similar: similar});
 });
-Router.route('/person/:id', () => {
+Router.route('/person/:id', function() {
     const db = new People();
     const data = db.getById({id: this.params.id})
     console.log(data);
