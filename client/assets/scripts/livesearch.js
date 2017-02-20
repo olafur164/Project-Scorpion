@@ -1,5 +1,5 @@
 function search() {
-    $('#search').keyup(function(){
+    $('#search').keyup(() => {
         var searchField = $('#search').val();
         var output = '';
         if (searchField.length === 0) {
@@ -7,7 +7,7 @@ function search() {
             $('.results').html(output);
         }
         if (searchField.length > 0) {
-            $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=5caf95feed570ed071f7cb0839668613&query=' + searchField, function(data) {
+            $.getJSON('https://api.themoviedb.org/3/search/multi?api_key=5caf95feed570ed071f7cb0839668613&query=' + searchField, data => {
                 $.each(data.results, function(key, val){
                     console.log(val)
                         if (val.media_type === 'person') {

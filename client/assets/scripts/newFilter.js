@@ -7,7 +7,7 @@ function newFilter() {
     let filteredResults = {}
     let output = '';
     if (searchField.length > 0) {
-    	$.getJSON('https://api.themoviedb.org/3/search/movie?api_key=5caf95feed570ed071f7cb0839668613&query=' + searchField, function(data) {
+    	$.getJSON('https://api.themoviedb.org/3/search/movie?api_key=5caf95feed570ed071f7cb0839668613&query=' + searchField, data => {
     		$.each(data.results, function(key, val){
     			var year = val.release_date[0] + val.release_date[1] + val.release_date[2] + val.release_date[3];
                 if (genres.length > 0) {
