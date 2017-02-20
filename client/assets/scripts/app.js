@@ -90,6 +90,8 @@ Router.autoRun = true;
     };
 Router.route('/', function() {
     const db = new Movies();
+    const kvikmyndirdb = new Kvikmyndir();
+    console.log(kvikmyndirdb.authenticate());
     const genres = new Genres();
     const popular = db.getPopular({})
     const genreList = genres.getList({});
